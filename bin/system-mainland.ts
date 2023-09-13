@@ -4,7 +4,7 @@ import * as cdk from 'aws-cdk-lib';
 import { SystemMainlandStack } from '../lib/system-mainland-stack';
 
 const app = new cdk.App();
-new SystemMainlandStack(app, 'SystemMainlandStack', {
+new SystemMainlandStack(app, `SystemMainlandStack${process.env.SUFFIX}`, {
   /* If you don't specify 'env', this stack will be environment-agnostic.
    * Account/Region-dependent features and context lookups will not work,
    * but a single synthesized template can be deployed anywhere. */

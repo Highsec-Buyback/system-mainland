@@ -9,7 +9,7 @@
     "watch": "tsc -w",
     "test": "vitest",
     "cdk": "cdk",
-    "deploy": "AWS_PROFILE=eve-tools cdk deploy --require-approval never"
+    "deploy": "cdk deploy --require-approval never"
   },
   "devDependencies": {
     "@types/aws-lambda": "8.10.120",
