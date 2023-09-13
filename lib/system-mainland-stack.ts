@@ -35,5 +35,10 @@ export class SystemMainlandStack extends cdk.Stack {
 
     const mainlandResource = api.root.addResource('mainland');
     mainlandResource.addMethod('GET');
+
+    new cdk.CfnOutput(this, 'Url', {
+      value: api.url,
+    });
+    
   }
 }

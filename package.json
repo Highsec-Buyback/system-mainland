@@ -8,8 +8,9 @@
     "build": "tsc",
     "watch": "tsc -w",
     "test": "vitest",
+    "test:e2e": "vitest --config=vite.config.e2e.ts",
     "cdk": "cdk",
-    "deploy": "AWS_PROFILE=eve-tools cdk deploy --require-approval never"
+    "deploy": "cdk deploy --require-approval never"
   },
   "devDependencies": {
     "@types/aws-lambda": "8.10.120",
