@@ -8,6 +8,7 @@
     "build": "tsc",
     "watch": "tsc -w",
     "test": "vitest",
+    "test:e2e": "vitest --config=vite.config.e2e.ts",
     "cdk": "cdk",
     "deploy": "cdk deploy --require-approval never"
   },

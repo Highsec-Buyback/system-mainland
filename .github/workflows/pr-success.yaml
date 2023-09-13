@@ -8,7 +8,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
         node-version: '18'
     - name: Install dependencies
@@ -24,7 +24,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
     - name: Setup Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
         node-version: '18'
     - name: Install dependencies
@@ -43,5 +43,21 @@ jobs:
       run: |
         URL=$(aws cloudformation describe-stacks --stack-name SystemMainlandStack-pr${{ github.event.pull_request.number }} --query 'Stacks[0].Outputs[?OutputKey==`Url`].OutputValue' --output text)
         echo "URL=$URL" >> $GITHUB_ENV
-        
+  e2e-tests:
+    needs: deploy-pr-stack
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    - name: Install dependencies
+      run: npm ci
+    - name: Run e2e tests
+      run: npm run test:e2e
+      env:
+        URL: ${{ env.URL }}
+  
 
