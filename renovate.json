@@ -6,6 +6,7 @@
   ],
   "rangeStrategy": "pin",
   "transitiveRemediation": true,
+  "automerge": true,
   "major": {
     "dependencyDashboardApproval": true,
     "addLabels": [
