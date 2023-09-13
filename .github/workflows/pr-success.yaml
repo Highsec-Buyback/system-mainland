@@ -20,6 +20,8 @@ jobs:
       id-token: write   # This is required for requesting the JWT
       contents: read    # This is required for actions/checkout
     runs-on: ubuntu-latest
+    outputs:
+      url: ${{ steps.get-url.outputs.url }}
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -43,7 +45,7 @@ jobs:
       run: |
         URL=$(aws cloudformation describe-stacks --stack-name SystemMainlandStack-pr${{ github.event.pull_request.number }} --query 'Stacks[0].Outputs[?OutputKey==`Url`].OutputValue' --output text)
         echo $URL
-        echo "URL=$URL" >> $GITHUB_ENV
+        echo "url=$URL" >> "$GITHUB_OUTPUT"
   e2e-tests:
     needs: deploy-pr-stack
     runs-on: ubuntu-latest
@@ -59,6 +61,6 @@ jobs:
     - name: Run e2e tests
       run: npm run test:e2e
       env:
-        URL: ${{ env.URL }}
+        URL: ${{ needs.deploy-pr-stack.outputs.URL }}
   
 
