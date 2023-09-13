@@ -3,6 +3,11 @@ on:
     pull_request:
       types: [closed]
 
+
+concurrency: 
+    group: pr-destroy-${{ github.event.pull_request.number }}
+    cancel-in-progress: false
+    
 jobs:
   destroy-pr-stack:
     permissions:
