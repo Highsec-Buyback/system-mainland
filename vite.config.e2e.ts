@@ -3,6 +3,6 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   test: {
-    include: ['**/*.{e2e}.?(c|m)[jt]s?(x)']
+    include: ['**/*.e2e.ts']
   },
 })
