@@ -10,7 +10,8 @@
     "test": "vitest",
     "test:e2e": "vitest --config=vite.config.e2e.ts",
     "cdk": "cdk",
-    "deploy": "cdk deploy --require-approval never"
+    "deploy": "cdk deploy --require-approval=never",
+    "destroy:force": "cdk destroy --force"
   },
   "devDependencies": {
     "@types/aws-lambda": "8.10.120",
