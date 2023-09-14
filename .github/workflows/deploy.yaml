@@ -35,7 +35,7 @@ jobs:
     - name: Get endpoint URL
       id: get-url
       run: |
-        URL=$(aws cloudformation describe-stacks --stack-name SystemMainlandStack-pr${{ github.event.pull_request.number }} --query 'Stacks[0].Outputs[?OutputKey==`Url`].OutputValue' --output text)
+        URL=$(aws cloudformation describe-stacks --stack-name SystemMainlandStack --query 'Stacks[0].Outputs[?OutputKey==`Url`].OutputValue' --output text)
         echo $URL
         echo "url=$URL" >> "$GITHUB_OUTPUT"
   e2e-tests:
