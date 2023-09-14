@@ -32,8 +32,6 @@ jobs:
         role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
     - name: Deploy
       run: npm run deploy
-      env:
-        SUFFIX: -pr${{ github.event.pull_request.number }}
     - name: Get endpoint URL
       id: get-url
       run: |
