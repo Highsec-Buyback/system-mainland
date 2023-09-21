@@ -21,7 +21,7 @@
     "esbuild": "0.19.3",
     "ts-node": "10.9.1",
     "typescript": "5.2.2",
-    "vitest": "0.34.4"
+    "vitest": "0.34.5"
   },
   "dependencies": {
     "@aws-sdk/lib-dynamodb": "3.417.0",
