@@ -24,7 +24,7 @@
     "vitest": "0.34.6"
   },
   "dependencies": {
-    "@aws-sdk/lib-dynamodb": "3.582.0",
+    "@aws-sdk/lib-dynamodb": "3.583.0",
     "aws-cdk-lib": "2.142.1",
     "axios": "1.7.2",
     "constructs": "10.3.0",
